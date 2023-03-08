@@ -6,7 +6,7 @@ Selenium Java Test Framework & Best Practices - Masterclass
 
 My Build:
 
-* IntelliJ Idea Community Edition
+* IntelliJ IDEA Community Edition
 
 Practice Websites:
 
