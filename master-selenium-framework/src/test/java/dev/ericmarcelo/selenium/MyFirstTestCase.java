@@ -25,7 +25,16 @@ public class MyFirstTestCase {
                 + "chromedriver");
 
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addExtensions(new File("src/main/resources/extensions/SelectorsHub.crx"));
+        chromeOptions.addExtensions(new File("src"
+                + File.separator
+                + "main"
+                + File.separator
+                + "resources"
+                + File.separator
+                + "extensions"
+                + File.separator
+                + "SelectorsHub.crx"));
+
         WebDriver webDriver = new ChromeDriver(chromeOptions);
         webDriver.get("https://askomdch.com/");
         // webDriver.get("https://www.saucedemo.com/");
@@ -46,7 +55,16 @@ public class MyFirstTestCase {
                 + "chromedriver");
 
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addExtensions(new File("src/main/resources/extensions/SelectorsHub.crx"));
+        chromeOptions.addExtensions(new File("src"
+                + File.separator
+                + "main"
+                + File.separator
+                + "resources"
+                + File.separator
+                + "extensions"
+                + File.separator
+                + "SelectorsHub.crx"));
+
         WebDriver webDriver = new ChromeDriver(chromeOptions);
         webDriver.get("https://askomdch.com/");
         webDriver.manage().window().maximize();
@@ -96,7 +114,16 @@ public class MyFirstTestCase {
                 + "chromedriver");
 
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addExtensions(new File("src/main/resources/extensions/SelectorsHub.crx"));
+        chromeOptions.addExtensions(new File("src"
+                + File.separator
+                + "main"
+                + File.separator
+                + "resources"
+                + File.separator
+                + "extensions"
+                + File.separator
+                + "SelectorsHub.crx"));
+
         WebDriver webDriver = new ChromeDriver(chromeOptions);
         webDriver.get("https://askomdch.com/");
         webDriver.manage().window().maximize();
