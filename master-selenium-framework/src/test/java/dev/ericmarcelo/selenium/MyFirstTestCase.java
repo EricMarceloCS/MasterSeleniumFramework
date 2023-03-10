@@ -3,6 +3,7 @@ package dev.ericmarcelo.selenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,7 +23,10 @@ public class MyFirstTestCase {
                 + "drivers"
                 + File.separator
                 + "chromedriver");
-        WebDriver webDriver = new ChromeDriver();
+
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addExtensions(new File("src/main/resources/extensions/SelectorsHub.crx"));
+        WebDriver webDriver = new ChromeDriver(chromeOptions);
         webDriver.get("https://askomdch.com/");
         // webDriver.get("https://www.saucedemo.com/");
         // webDriver.get("https://demoqa.com/");
@@ -41,7 +45,9 @@ public class MyFirstTestCase {
                 + File.separator
                 + "chromedriver");
 
-        WebDriver webDriver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addExtensions(new File("src/main/resources/extensions/SelectorsHub.crx"));
+        WebDriver webDriver = new ChromeDriver(chromeOptions);
         webDriver.get("https://askomdch.com/");
         webDriver.manage().window().maximize();
 
@@ -89,7 +95,9 @@ public class MyFirstTestCase {
                 + File.separator
                 + "chromedriver");
 
-        WebDriver webDriver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addExtensions(new File("src/main/resources/extensions/SelectorsHub.crx"));
+        WebDriver webDriver = new ChromeDriver(chromeOptions);
         webDriver.get("https://askomdch.com/");
         webDriver.manage().window().maximize();
 
