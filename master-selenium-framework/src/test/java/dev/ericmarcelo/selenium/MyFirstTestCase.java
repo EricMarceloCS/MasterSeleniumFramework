@@ -1,186 +1,90 @@
 package dev.ericmarcelo.selenium;
 
+import dev.ericmarcelo.selenium.pom.base.BaseTest;
+import dev.ericmarcelo.selenium.pom.pages.CartPage;
+import dev.ericmarcelo.selenium.pom.pages.CheckoutPage;
+import dev.ericmarcelo.selenium.pom.pages.HomePage;
+import dev.ericmarcelo.selenium.pom.pages.StorePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.File;
-
-public class MyFirstTestCase {
+public class MyFirstTestCase extends BaseTest {
 
     @Test
     public void dummyTest() {
 
-        System.setProperty("webdriver.gecko.driver", "src"
-                + File.separator
-                + "main"
-                + File.separator
-                + "resources"
-                + File.separator
-                + "drivers"
-                + File.separator
-                + "geckodriver");
-
-        /*ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addExtensions(new File("src"
-                + File.separator
-                + "main"
-                + File.separator
-                + "resources"
-                + File.separator
-                + "extensions"
-                + File.separator
-                + "SelectorsHub.crx"));*/
-
-        WebDriver webDriver = new FirefoxDriver();
         webDriver.get("https://askomdch.com/");
         //webDriver.get("https://www.saucedemo.com/");
         // webDriver.get("https://demoqa.com/");
-        webDriver.quit();
     }
 
     @Test
     public void guestCheckoutUsingDirectBankTransfer() throws InterruptedException {
-        System.setProperty("webdriver.gecko.driver", "src"
-                + File.separator
-                + "main"
-                + File.separator
-                + "resources"
-                + File.separator
-                + "drivers"
-                + File.separator
-                + "geckodriver");
 
-        /*
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addExtensions(new File("src"
-                + File.separator
-                + "main"
-                + File.separator
-                + "resources"
-                + File.separator
-                + "extensions"
-                + File.separator
-                + "SelectorsHub.crx"));
+        StorePage storePage = new HomePage(webDriver)
+                .load().navigateToStoreUsingMenu()
+                .search("Blue");
+        Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
 
-         */
-
-        WebDriver webDriver = new FirefoxDriver();
-        webDriver.get("https://askomdch.com/");
-        webDriver.manage().window().maximize();
-
-        webDriver.findElement(By.cssSelector("#menu-item-1227 > a")).click();
-        webDriver.findElement(By.id("woocommerce-product-search-field-0")).sendKeys("Blue");
-        webDriver.findElement(By.cssSelector("button[value='Search']")).click();
-        Assert.assertEquals(
-                webDriver.findElement(By.cssSelector(".woocommerce-products-header__title.page-title")).getText(),
-                "Search results: “Blue”"
-        );
-
-        webDriver.findElement(By.cssSelector("a[aria-label='Add “Blue Shoes” to your cart']")).click();
+        storePage.clickAddToCartButton("Blue Shoes");
         Thread.sleep(3000);
-        webDriver.findElement(By.cssSelector("a[title='View cart']")).click();
-        Assert.assertEquals(webDriver.findElement(By.cssSelector("td[class='product-name'] a")).getText(),
-                "Blue Shoes"
-        );
+        CartPage cartPage = storePage.clickViewCart();
+        Assert.assertEquals(cartPage.getProductName(), "Blue Shoes");
 
-        webDriver.findElement(By.cssSelector(".checkout-button.button.alt.wc-forward")).click();
-        webDriver.findElement(By.id("billing_first_name")).sendKeys("demo");
-        webDriver.findElement(By.id("billing_last_name")).sendKeys("user");
-        webDriver.findElement(By.id("billing_address_1")).sendKeys("San Francisco");
-        webDriver.findElement(By.id("billing_city")).sendKeys("San Francisco");
-        webDriver.findElement(By.id("billing_postcode")).sendKeys("94188");
-        webDriver.findElement(By.id("billing_email")).sendKeys("askomdch@gmail.com");
+        CheckoutPage checkoutPage = cartPage.checkout();
+
+        checkoutPage.
+                enterFirstName("demo").
+                enterLastName("user").
+                enterAddress("San Francisco").
+                enterCity("San Francisco").
+                enterPostCode("94188").
+                enterEmail("askomdch@gmail.com");
+
         Thread.sleep(3000);
-        webDriver.findElement(By.id("place_order")).click();
+        checkoutPage.placeOrder();
         Thread.sleep(3000);
-        Assert.assertEquals(webDriver.findElement(
-                By.cssSelector(".woocommerce-notice")).getText(),
+        Assert.assertEquals(checkoutPage.getNotice(),
                 "Thank you. Your order has been received."
         );
-
-        webDriver.quit();
 
     }
     @Test
     public void loginAndCheckoutUsingDirectBankTransfer() throws InterruptedException {
-        System.setProperty("webdriver.gecko.driver", "src"
-                + File.separator
-                + "main"
-                + File.separator
-                + "resources"
-                + File.separator
-                + "drivers"
-                + File.separator
-                + "geckodriver");
 
-        /*ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addExtensions(new File("src"
-                + File.separator
-                + "main"
-                + File.separator
-                + "resources"
-                + File.separator
-                + "extensions"
-                + File.separator
-                + "SelectorsHub.crx"));
+        StorePage storePage = new HomePage(webDriver)
+                .load().navigateToStoreUsingMenu()
+                .search("Blue");
+        Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
 
-         */
-        WebDriver webDriver = new FirefoxDriver();
-        webDriver.get("https://askomdch.com/");
-        webDriver.manage().window().maximize();
-
-        webDriver.findElement(By.cssSelector("#menu-item-1227 > a")).click();
-        webDriver.findElement(By.id("woocommerce-product-search-field-0")).sendKeys("Blue");
-        webDriver.findElement(By.cssSelector("button[value='Search']")).click();
-        Assert.assertEquals(
-                webDriver.findElement(By.cssSelector(".woocommerce-products-header__title.page-title")).getText(),
-                "Search results: “Blue”"
-        );
-
-        webDriver.findElement(By.cssSelector("a[aria-label='Add “Blue Shoes” to your cart']")).click();
+        storePage.clickAddToCartButton("Blue Shoes");
         Thread.sleep(3000);
-        webDriver.findElement(By.cssSelector("a[title='View cart']")).click();
-        Assert.assertEquals(webDriver.findElement(By.cssSelector("td[class='product-name'] a")).getText(),
-                "Blue Shoes"
-        );
+        CartPage cartPage = storePage.clickViewCart();
+        Assert.assertEquals(cartPage.getProductName(), "Blue Shoes");
 
-        webDriver.findElement(By.cssSelector(".checkout-button.button.alt.wc-forward")).click();
-        webDriver.findElement(By.className("showlogin")).click();
+        CheckoutPage checkoutPage = cartPage.checkout();
+        checkoutPage.enterLogin();
         Thread.sleep(5000);
 
-        webDriver.findElement(By.id("username")).sendKeys("demouser2");
-        webDriver.findElement(By.id("password")).sendKeys("demopwd");
-        webDriver.findElement(By.name("login")).click();
+        checkoutPage
+                .enterUserName("demouser2")
+                .enterPassword("demopwd")
+                .login();
 
-        webDriver.findElement(By.id("billing_first_name")).clear();
-        webDriver.findElement(By.id("billing_last_name")).clear();
-        webDriver.findElement(By.id("billing_address_1")).clear();
-        webDriver.findElement(By.id("billing_city")).clear();
-        webDriver.findElement(By.id("billing_postcode")).clear();
-        webDriver.findElement(By.id("billing_email")).clear();
+        checkoutPage.
+                enterFirstName("demo").
+                enterLastName("user").
+                enterAddress("San Francisco").
+                enterCity("San Francisco").
+                enterPostCode("94188").
+                enterEmail("askomdch@gmail.com");
 
-        webDriver.findElement(By.id("billing_first_name")).sendKeys("demo");
-        webDriver.findElement(By.id("billing_last_name")).sendKeys("user");
-        webDriver.findElement(By.id("billing_address_1")).sendKeys("San Francisco");
-        webDriver.findElement(By.id("billing_city")).sendKeys("San Francisco");
-        webDriver.findElement(By.id("billing_postcode")).sendKeys("94188");
-
-        webDriver.findElement(By.id("billing_email")).sendKeys("askomdch@gmail.com");
-        Thread.sleep(5000);
-        webDriver.findElement(By.id("place_order")).click();
         Thread.sleep(3000);
-        Assert.assertEquals(webDriver.findElement(
-                        By.cssSelector(".woocommerce-notice")).getText(),
+        checkoutPage.placeOrder();
+        Thread.sleep(3000);
+        Assert.assertEquals(checkoutPage.getNotice(),
                 "Thank you. Your order has been received."
         );
-
-        webDriver.quit();
-
     }
 }
