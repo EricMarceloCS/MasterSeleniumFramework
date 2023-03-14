@@ -25,7 +25,7 @@ public class MyFirstTestCase extends BaseTest {
     }
 
     @Test
-    public void guestCheckoutUsingDirectBankTransfer() throws InterruptedException, IOException {
+    public void guestCheckoutUsingDirectBankTransfer() throws IOException {
 
         BillingAddress billingAddress = new BillingAddress();
         InputStream is = getClass().getClassLoader().getResourceAsStream("BillingAddress.json");
@@ -37,24 +37,19 @@ public class MyFirstTestCase extends BaseTest {
         Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
 
         storePage.clickAddToCartButton("Blue Shoes");
-        Thread.sleep(3000);
         CartPage cartPage = storePage.clickViewCart();
         Assert.assertEquals(cartPage.getProductName(), "Blue Shoes");
 
         CheckoutPage checkoutPage = cartPage.checkout();
-
         checkoutPage.setBillingAddress(billingAddress);
-
-        Thread.sleep(3000);
         checkoutPage.placeOrder();
-        Thread.sleep(3000);
         Assert.assertEquals(checkoutPage.getNotice(),
                 "Thank you. Your order has been received."
         );
 
     }
     @Test
-    public void loginAndCheckoutUsingDirectBankTransfer() throws InterruptedException {
+    public void loginAndCheckoutUsingDirectBankTransfer() {
 
         StorePage storePage = new HomePage(webDriver)
                 .load().navigateToStoreUsingMenu()
@@ -62,13 +57,11 @@ public class MyFirstTestCase extends BaseTest {
         Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
 
         storePage.clickAddToCartButton("Blue Shoes");
-        Thread.sleep(3000);
         CartPage cartPage = storePage.clickViewCart();
         Assert.assertEquals(cartPage.getProductName(), "Blue Shoes");
 
         CheckoutPage checkoutPage = cartPage.checkout();
         checkoutPage.enterLogin();
-        Thread.sleep(5000);
 
         User user = new User("demouser2", "demopwd");
 
@@ -84,13 +77,8 @@ public class MyFirstTestCase extends BaseTest {
 
         checkoutPage.setBillingAddress(billingAddress);
         checkoutPage.setUser(user);
-        Thread.sleep(3000);
-
         checkoutPage.login();
-
-        Thread.sleep(5000);
         checkoutPage.placeOrder();
-        Thread.sleep(3000);
         Assert.assertEquals(checkoutPage.getNotice(),
                 "Thank you. Your order has been received."
         );

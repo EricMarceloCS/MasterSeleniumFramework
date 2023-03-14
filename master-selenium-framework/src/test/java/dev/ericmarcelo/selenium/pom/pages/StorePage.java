@@ -3,6 +3,7 @@ package dev.ericmarcelo.selenium.pom.pages;
 import dev.ericmarcelo.selenium.pom.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class StorePage extends BasePage {
 
@@ -43,7 +44,7 @@ public class StorePage extends BasePage {
     }
 
     public CartPage clickViewCart() {
-        webDriver.findElement(viewCartLink).click();
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(viewCartLink)).click();
         return new CartPage(webDriver);
     }
 }

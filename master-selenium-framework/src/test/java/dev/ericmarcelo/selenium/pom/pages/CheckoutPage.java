@@ -5,6 +5,8 @@ import dev.ericmarcelo.selenium.pom.objects.BillingAddress;
 import dev.ericmarcelo.selenium.pom.objects.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CheckoutPage extends BasePage {
 
@@ -21,6 +23,7 @@ public class CheckoutPage extends BasePage {
     private final By userName = By.id("username");
     private final By password = By.id("password");
     private final By login = By.name("login");
+    private final By overlay = By.cssSelector(".blockUI.blockOverlay");
 
     public CheckoutPage(WebDriver webDriver) {
         super(webDriver);
@@ -43,47 +46,55 @@ public class CheckoutPage extends BasePage {
     }
 
     public CheckoutPage enterFirstName(String text) {
-        webDriver.findElement(billingFirstName).clear();
-        webDriver.findElement(billingFirstName).sendKeys(text);
+        WebElement webElement = waitForElementToBeVisible(billingFirstName);
+        webElement.clear();
+        webElement.sendKeys(text);
+
         return this;
     }
 
     public CheckoutPage enterLastName(String text) {
-        webDriver.findElement(billingLastName).clear();
-        webDriver.findElement(billingLastName).sendKeys(text);
+        WebElement webElement = waitForElementToBeVisible(billingLastName);
+        webElement.clear();
+        webElement.sendKeys(text);
         return this;
     }
 
     public CheckoutPage enterAddress(String text) {
-        webDriver.findElement(billingAddress).clear();
-        webDriver.findElement(billingAddress).sendKeys(text);
+        WebElement webElement = waitForElementToBeVisible(billingAddress);
+        webElement.clear();
+        webElement.sendKeys(text);
         return this;
     }
     public CheckoutPage enterCity(String text) {
-        webDriver.findElement(billingCity).clear();
-        webDriver.findElement(billingCity).sendKeys(text);
+        WebElement webElement = waitForElementToBeVisible(billingCity);
+        webElement.clear();
+        webElement.sendKeys(text);
         return this;
     }
 
     public CheckoutPage enterPostCode(String text) {
-        webDriver.findElement(billingPostCode).clear();
-        webDriver.findElement(billingPostCode).sendKeys(text);
+        WebElement webElement = waitForElementToBeVisible(billingPostCode);
+        webElement.clear();
+        webElement.sendKeys(text);
         return this;
     }
 
     public CheckoutPage enterEmail(String text) {
-        webDriver.findElement(billingEmail).clear();
-        webDriver.findElement(billingEmail).sendKeys(text);
+        WebElement webElement = waitForElementToBeVisible(billingEmail);
+        webElement.clear();
+        webElement.sendKeys(text);
         return this;
     }
 
     public CheckoutPage placeOrder(){
+        waitForOverlaysToDisappear(this.overlay);
         webDriver.findElement(placeOrder).click();
         return this;
     }
 
     public String getNotice(){
-        return webDriver.findElement(successNotice).getText();
+        return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(successNotice)).getText();
     }
 
     public void enterLogin() {
