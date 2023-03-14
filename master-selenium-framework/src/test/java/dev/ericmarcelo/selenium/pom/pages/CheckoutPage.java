@@ -1,6 +1,8 @@
 package dev.ericmarcelo.selenium.pom.pages;
 
 import dev.ericmarcelo.selenium.pom.base.BasePage;
+import dev.ericmarcelo.selenium.pom.objects.BillingAddress;
+import dev.ericmarcelo.selenium.pom.objects.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -22,6 +24,22 @@ public class CheckoutPage extends BasePage {
 
     public CheckoutPage(WebDriver webDriver) {
         super(webDriver);
+    }
+
+    public CheckoutPage setBillingAddress(BillingAddress billingAddress) {
+       return enterFirstName(billingAddress.getFirstName())
+                .enterLastName(billingAddress.getLastName())
+                .enterAddress(billingAddress.getAddress())
+                .enterCity(billingAddress.getCity())
+                .enterPostCode(billingAddress.getPostalCode())
+                .enterEmail(billingAddress.getEmail());
+
+    }
+
+    public CheckoutPage setUser(User user){
+        enterUserName(user.getUserName())
+                .enterPassword(user.getPassword());
+        return this;
     }
 
     public CheckoutPage enterFirstName(String text) {
