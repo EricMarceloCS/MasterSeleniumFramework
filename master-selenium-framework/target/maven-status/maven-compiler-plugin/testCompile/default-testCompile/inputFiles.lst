@@ -1,0 +1,11 @@
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/tests/MyFirstTestCase.java
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/factory/DriverManager.java
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/pages/StorePage.java
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/base/BasePage.java
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/pages/CheckoutPage.java
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/pages/HomePage.java
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/pages/CartPage.java
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/utils/JacksonUtils.java
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/base/BaseTest.java
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/objects/BillingAddress.java
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/objects/User.java
