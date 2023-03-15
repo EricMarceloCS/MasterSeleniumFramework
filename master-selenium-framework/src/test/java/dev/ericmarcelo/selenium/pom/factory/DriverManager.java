@@ -3,6 +3,7 @@ package dev.ericmarcelo.selenium.pom.factory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.managers.FirefoxDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.File;
@@ -19,12 +20,11 @@ public class DriverManager {
                         + File.separator
                         + "resources"
                         + File.separator
-                        + "drivers"
-                        + File.separator
-                        + "geckodriver")
+                        + "drivers")
                 .setup();
 
         WebDriver webDriver = new FirefoxDriver();
+
         webDriver.manage().window().maximize();
 
         return webDriver;
