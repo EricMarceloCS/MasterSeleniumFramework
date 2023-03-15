@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 public class CheckoutPage extends BasePage {
 
@@ -24,6 +25,9 @@ public class CheckoutPage extends BasePage {
     private final By password = By.id("password");
     private final By login = By.name("login");
     private final By overlay = By.cssSelector(".blockUI.blockOverlay");
+    private final By countryDropDown = By.id("billing_country");
+    private final By stateDropDown = By.id("billing_state");
+    private final By directbankTransferRadioBtn = By.id("payment_method_bacs");
 
     public CheckoutPage(WebDriver webDriver) {
         super(webDriver);
@@ -31,11 +35,16 @@ public class CheckoutPage extends BasePage {
 
     public CheckoutPage setBillingAddress(BillingAddress billingAddress) {
        return enterFirstName(billingAddress.getFirstName())
-                .enterLastName(billingAddress.getLastName())
-                .enterAddress(billingAddress.getAddress())
-                .enterCity(billingAddress.getCity())
-                .enterPostCode(billingAddress.getPostalCode())
-                .enterEmail(billingAddress.getEmail());
+               .enterLastName(billingAddress.getLastName())
+               .enterAddress(billingAddress.getAddress())
+               .enterCity(billingAddress.getCity())
+               .enterPostCode(billingAddress.getPostalCode())
+               .enterEmail(billingAddress.getEmail());
+
+       /*
+       .selectCountry(billingAddress.getCountry())
+               .selectState(billingAddress.getState())
+        */
 
     }
 
@@ -57,6 +66,20 @@ public class CheckoutPage extends BasePage {
         WebElement webElement = waitForElementToBeVisible(billingLastName);
         webElement.clear();
         webElement.sendKeys(text);
+        return this;
+    }
+
+    public CheckoutPage selectCountry(String country) {
+        WebElement webElement = waitForElementToBeVisible(countryDropDown);
+        //webElement.clear();
+        webElement.sendKeys(country);
+        return this;
+    }
+
+    public CheckoutPage selectState(String state) {
+        WebElement webElement = waitForElementToBeVisible(stateDropDown);
+        //webElement.clear();
+        webElement.sendKeys(state);
         return this;
     }
 
@@ -113,5 +136,14 @@ public class CheckoutPage extends BasePage {
 
     public void login(){
         webDriver.findElement(login).click();
+    }
+
+    public CheckoutPage selectDirectBankTransfer(){
+        WebElement webElement = webDriverWait
+                .until(ExpectedConditions.elementToBeClickable(directbankTransferRadioBtn));
+        if(!webElement.isSelected()){
+            webElement.click();
+        }
+        return this;
     }
 }

@@ -3,12 +3,32 @@ package dev.ericmarcelo.selenium.pom.objects;
 public class BillingAddress {
     private String firstName;
     private String lastName;
+    private String country;
     private String address;
     private String city;
+    private String state;
     private String postalCode;
     private String email;
     private String userName;
     private String password;
+
+    public String getCountry() {
+        return country;
+    }
+
+    public BillingAddress setCountry(String country) {
+        this.country = country;
+        return this;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public BillingAddress setState(String state) {
+        this.state = state;
+        return this;
+    }
 
     public String getUserName() {
         return userName;
@@ -86,8 +106,10 @@ public class BillingAddress {
         return "BillingAddress{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", country='" + country + '\'' +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
                 ", postalCode='" + postalCode + '\'' +
                 ", email='" + email + '\'' +
                 ", userName='" + userName + '\'' +

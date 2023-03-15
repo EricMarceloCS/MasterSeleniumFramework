@@ -29,7 +29,7 @@ public class MyFirstTestCase extends BaseTest {
 
         BillingAddress billingAddress = new BillingAddress();
         InputStream is = getClass().getClassLoader().getResourceAsStream("BillingAddress.json");
-        billingAddress = JacksonUtils.deserializeJson(is, billingAddress);
+        billingAddress = JacksonUtils.deserializeBillingAddressJson(is, billingAddress);
 
         StorePage storePage = new HomePage(webDriver)
                 .load().navigateToStoreUsingMenu()
@@ -41,8 +41,9 @@ public class MyFirstTestCase extends BaseTest {
         Assert.assertEquals(cartPage.getProductName(), "Blue Shoes");
 
         CheckoutPage checkoutPage = cartPage.checkout();
-        checkoutPage.setBillingAddress(billingAddress);
-        checkoutPage.placeOrder();
+        checkoutPage.setBillingAddress(billingAddress)
+                .selectDirectBankTransfer()
+                .placeOrder();
         Assert.assertEquals(checkoutPage.getNotice(),
                 "Thank you. Your order has been received."
         );
