@@ -29,7 +29,7 @@ public class MyFirstTestCase extends BaseTest {
 
         BillingAddress billingAddress = new BillingAddress();
         InputStream is = getClass().getClassLoader().getResourceAsStream("BillingAddress.json");
-        billingAddress = JacksonUtils.deserializeBillingAddressJson(is, billingAddress);
+        JacksonUtils.deserializeBillingAddressJson(is, billingAddress);
 
         StorePage storePage = new HomePage(webDriver)
                 .load().navigateToStoreUsingMenu()
