@@ -2,12 +2,14 @@ dev/ericmarcelo/selenium/pom/utils/BillingJacksonUtils.class
 dev/ericmarcelo/selenium/pom/base/BaseTest.class
 dev/ericmarcelo/selenium/pom/tests/MyFirstTestCase.class
 dev/ericmarcelo/selenium/pom/pages/StorePage.class
-dev/ericmarcelo/selenium/pom/pages/CartPage.class
 dev/ericmarcelo/selenium/pom/pages/HomePage.class
+dev/ericmarcelo/selenium/pom/pages/CartPage.class
+dev/ericmarcelo/selenium/pom/tests/MyFirstJUnitTestCase.class
 dev/ericmarcelo/selenium/pom/objects/BillingAddress.class
 dev/ericmarcelo/selenium/pom/constants/DriverType.class
 dev/ericmarcelo/selenium/pom/objects/User.class
 dev/ericmarcelo/selenium/pom/factory/DriverManager.class
 dev/ericmarcelo/selenium/pom/pages/CheckoutPage.class
-dev/ericmarcelo/selenium/pom/factory/DriverManager$1.class
 dev/ericmarcelo/selenium/pom/base/BasePage.class
+dev/ericmarcelo/selenium/pom/factory/DriverManager$1.class
+dev/ericmarcelo/selenium/pom/base/BaseJUnitTest.class
