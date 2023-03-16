@@ -2,9 +2,7 @@ package dev.ericmarcelo.selenium.pom.factory;
 
 import dev.ericmarcelo.selenium.pom.constants.DriverType;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.github.bonigarcia.wdm.managers.FirefoxDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.File;
