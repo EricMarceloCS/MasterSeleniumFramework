@@ -4,10 +4,10 @@ import dev.ericmarcelo.selenium.pom.base.BasePage;
 import dev.ericmarcelo.selenium.pom.objects.BillingAddress;
 import dev.ericmarcelo.selenium.pom.objects.User;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 
 public class CheckoutPage extends BasePage {
 
@@ -28,6 +28,8 @@ public class CheckoutPage extends BasePage {
     private final By countryDropDown = By.id("billing_country");
     private final By stateDropDown = By.id("billing_state");
     private final By directbankTransferRadioBtn = By.id("payment_method_bacs");
+    private By alternateCountryDropdown = By.id("select2-billing_country-container");
+    private By alternateStateDropDown = By.id("select2-billing_state-container");
 
     public CheckoutPage(WebDriver webDriver) {
         super(webDriver);
@@ -36,15 +38,12 @@ public class CheckoutPage extends BasePage {
     public CheckoutPage setBillingAddress(BillingAddress billingAddress) {
        return enterFirstName(billingAddress.getFirstName())
                .enterLastName(billingAddress.getLastName())
+               .selectCountry(billingAddress.getCountry())
+               .selectState(billingAddress.getState())
                .enterAddress(billingAddress.getAddress())
                .enterCity(billingAddress.getCity())
                .enterPostCode(billingAddress.getPostalCode())
                .enterEmail(billingAddress.getEmail());
-
-       /*
-       .selectCountry(billingAddress.getCountry())
-               .selectState(billingAddress.getState())
-        */
 
     }
 
@@ -58,7 +57,6 @@ public class CheckoutPage extends BasePage {
         WebElement webElement = waitForElementToBeVisible(billingFirstName);
         webElement.clear();
         webElement.sendKeys(text);
-
         return this;
     }
 
@@ -70,16 +68,30 @@ public class CheckoutPage extends BasePage {
     }
 
     public CheckoutPage selectCountry(String country) {
-        WebElement webElement = waitForElementToBeVisible(countryDropDown);
-        //webElement.clear();
-        webElement.sendKeys(country);
+        if(country == null)
+            return this;
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(alternateCountryDropdown)).click();
+        WebElement webElement = webDriverWait
+                .until(ExpectedConditions
+                        .elementToBeClickable(By.xpath("//li[text()='" + country +"']")));
+
+        ((JavascriptExecutor) webDriver)
+                .executeScript("arguments[0].scrollIntoView(true);", webElement);
+        webElement.click();
         return this;
     }
 
     public CheckoutPage selectState(String state) {
-        WebElement webElement = waitForElementToBeVisible(stateDropDown);
-        //webElement.clear();
-        webElement.sendKeys(state);
+        if(state == null)
+            return this;
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(alternateStateDropDown)).click();
+        WebElement webElement = webDriverWait
+                .until(ExpectedConditions
+                        .elementToBeClickable(By.xpath("//li[text()='" + state +"']")));
+
+        ((JavascriptExecutor) webDriver)
+                .executeScript("arguments[0].scrollIntoView(true);", webElement);
+        webElement.click();
         return this;
     }
 
