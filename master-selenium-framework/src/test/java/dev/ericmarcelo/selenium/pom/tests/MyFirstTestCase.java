@@ -7,7 +7,7 @@ import dev.ericmarcelo.selenium.pom.pages.CartPage;
 import dev.ericmarcelo.selenium.pom.pages.CheckoutPage;
 import dev.ericmarcelo.selenium.pom.pages.HomePage;
 import dev.ericmarcelo.selenium.pom.pages.StorePage;
-import dev.ericmarcelo.selenium.pom.utils.JacksonUtils;
+import dev.ericmarcelo.selenium.pom.utils.BillingJacksonUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,7 +29,7 @@ public class MyFirstTestCase extends BaseTest {
 
         BillingAddress billingAddress = new BillingAddress();
         InputStream is = getClass().getClassLoader().getResourceAsStream("BillingAddress.json");
-        JacksonUtils.deserializeBillingAddressJson(is, billingAddress);
+        BillingJacksonUtils.deserializeBillingAddressJson(is, billingAddress);
 
         StorePage storePage = new HomePage(webDriver)
                 .load().navigateToStoreUsingMenu()

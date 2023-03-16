@@ -8,17 +8,17 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JacksonUtils {
+public class BillingJacksonUtils {
 
-    private static Map<String, String> mapper = new HashMap<>();
-    public static BillingAddress deserializeBillingAddressJson(InputStream is, BillingAddress billingAddress) throws IOException {
+    public static synchronized BillingAddress deserializeBillingAddressJson(InputStream is, BillingAddress billingAddress) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
-        mapBillingAddress(br);
-        setBillingAddress(billingAddress);
+        Map<String, String> mapper = new HashMap<>();
+        mapBillingAddress(br, mapper);
+        setBillingAddress(billingAddress, mapper);
        return billingAddress;
     }
 
-    private static void mapBillingAddress(BufferedReader br) throws IOException {
+    private static void mapBillingAddress(BufferedReader br, Map<String, String> mapper) throws IOException {
         String str;
         while((str = br.readLine()) != null){
             if(str.length() == 1)
@@ -28,7 +28,7 @@ public class JacksonUtils {
         }
     }
 
-    private static void setBillingAddress(BillingAddress billingAddress){
+    private static void setBillingAddress(BillingAddress billingAddress, Map<String, String> mapper){
         billingAddress.setFirstName(mapper.get("firstName"))
                 .setLastName(mapper.get("lastName"))
                 .setCountry(mapper.get("country"))
