@@ -5,7 +5,8 @@
 /home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/pages/CheckoutPage.java
 /home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/pages/HomePage.java
 /home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/pages/CartPage.java
-/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/utils/JacksonUtils.java
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/utils/BillingJacksonUtils.java
 /home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/base/BaseTest.java
 /home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/objects/BillingAddress.java
 /home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/objects/User.java
+/home/eric/Development/MasterSeleniumFramework/master-selenium-framework/src/test/java/dev/ericmarcelo/selenium/pom/constants/DriverType.java
