@@ -19,7 +19,7 @@ public class MyFirstTestCase extends BaseTest {
     @Test
     public void dummyTest() {
 
-        webDriver.get("https://askomdch.com/");
+        getWebDriver().get("https://askomdch.com/");
         //webDriver.get("https://www.saucedemo.com/");
         // webDriver.get("https://demoqa.com/");
     }
@@ -31,7 +31,7 @@ public class MyFirstTestCase extends BaseTest {
         InputStream is = getClass().getClassLoader().getResourceAsStream("BillingAddress.json");
         BillingJacksonUtils.deserializeBillingAddressJson(is, billingAddress);
 
-        StorePage storePage = new HomePage(webDriver)
+        StorePage storePage = new HomePage(getWebDriver())
                 .load().navigateToStoreUsingMenu()
                 .search("Blue");
         Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
@@ -52,7 +52,7 @@ public class MyFirstTestCase extends BaseTest {
     @Test
     public void loginAndCheckoutUsingDirectBankTransfer() {
 
-        StorePage storePage = new HomePage(webDriver)
+        StorePage storePage = new HomePage(getWebDriver())
                 .load().navigateToStoreUsingMenu()
                 .search("Blue");
         Assert.assertEquals(storePage.getTitle(), "Search results: “Blue”");
