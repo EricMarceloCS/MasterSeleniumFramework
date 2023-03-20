@@ -15,6 +15,11 @@ public class StorePage extends BasePage {
         super(webDriver);
     }
 
+    public StorePage load(){
+        load("/store");
+        return this;
+    }
+
     private StorePage enterTextIntoSearchField(String text) {
         webDriver.findElement(searchField).sendKeys(text);
         return this;
