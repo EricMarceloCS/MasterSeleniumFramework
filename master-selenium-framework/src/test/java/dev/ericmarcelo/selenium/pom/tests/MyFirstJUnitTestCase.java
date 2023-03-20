@@ -8,6 +8,7 @@ import dev.ericmarcelo.selenium.pom.pages.CheckoutPage;
 import dev.ericmarcelo.selenium.pom.pages.HomePage;
 import dev.ericmarcelo.selenium.pom.pages.StorePage;
 import dev.ericmarcelo.selenium.pom.utils.BillingJacksonUtils;
+import dev.ericmarcelo.selenium.pom.utils.ConfigLoader;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
@@ -19,9 +20,7 @@ public class MyFirstJUnitTestCase extends BaseJUnitTest {
     @Test
     public void dummyTest() {
 
-        webDriver.get("https://askomdch.com/");
-        //webDriver.get("https://www.saucedemo.com/");
-        // webDriver.get("https://demoqa.com/");
+        webDriver.get(ConfigLoader.getInstance().getBaseUrl());
     }
 
     @Test
@@ -65,7 +64,10 @@ public class MyFirstJUnitTestCase extends BaseJUnitTest {
         CheckoutPage checkoutPage = cartPage.checkout();
         checkoutPage.enterLogin();
 
-        User user = new User("demouser2", "demopwd");
+        User user = new User(
+                ConfigLoader.getInstance().getUsername()
+                , ConfigLoader.getInstance().getPassword()
+        );
 
         BillingAddress billingAddress = new BillingAddress()
                 .setFirstName("demo")
