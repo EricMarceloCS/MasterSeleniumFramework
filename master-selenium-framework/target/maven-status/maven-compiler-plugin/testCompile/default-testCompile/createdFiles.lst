@@ -9,11 +9,14 @@ dev/ericmarcelo/selenium/pom/constants/DriverType.class
 dev/ericmarcelo/selenium/pom/objects/BillingAddress.class
 dev/ericmarcelo/selenium/pom/objects/User.class
 dev/ericmarcelo/selenium/pom/factory/DriverManager.class
+dev/ericmarcelo/selenium/pom/tests/NavigationTest.class
 dev/ericmarcelo/selenium/pom/pages/CheckoutPage.class
 dev/ericmarcelo/selenium/pom/factory/DriverManager$1.class
 dev/ericmarcelo/selenium/pom/base/BaseJUnitTest.class
 dev/ericmarcelo/selenium/pom/pages/StorePage.class
 dev/ericmarcelo/selenium/pom/pages/CartPage.class
 dev/ericmarcelo/selenium/pom/constants/EnvType.class
+dev/ericmarcelo/selenium/pom/tests/AddToCartTest.class
 dev/ericmarcelo/selenium/pom/utils/ConfigLoader.class
 dev/ericmarcelo/selenium/pom/base/BasePage.class
+dev/ericmarcelo/selenium/pom/tests/SearchTest.class

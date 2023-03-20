@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-03-20T09:01:10 PDT" name="Suite1" finished-at="2023-03-20T09:01:33 PDT" duration-ms="23481">
+  <suite started-at="2023-03-20T12:46:05 PDT" name="Suite1" finished-at="2023-03-20T12:46:24 PDT" duration-ms="18853">
     <groups>
     </groups>
-    <test started-at="2023-03-20T09:01:10 PDT" name="TestNG" finished-at="2023-03-20T09:01:33 PDT" duration-ms="23481">
+    <test started-at="2023-03-20T12:46:05 PDT" name="TestNG" finished-at="2023-03-20T12:46:24 PDT" duration-ms="18853">
       <class name="dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase">
-        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T09:01:10 PDT" name="startDriver" finished-at="2023-03-20T09:01:15 PDT" duration-ms="5645" status="PASS">
+        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T12:46:05 PDT" name="startDriver" finished-at="2023-03-20T12:46:09 PDT" duration-ms="4395" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,7 +18,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startDriver -->
-        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T09:01:10 PDT" name="startDriver" finished-at="2023-03-20T09:01:15 PDT" duration-ms="5654" status="PASS">
+        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T12:46:05 PDT" name="startDriver" finished-at="2023-03-20T12:46:09 PDT" duration-ms="4385" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -29,19 +29,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startDriver -->
-        <test-method signature="dummyTest()[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T09:01:15 PDT" name="dummyTest" finished-at="2023-03-20T09:01:17 PDT" duration-ms="1057" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- dummyTest -->
-        <test-method signature="guestCheckoutUsingDirectBankTransfer()[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T09:01:15 PDT" name="guestCheckoutUsingDirectBankTransfer" finished-at="2023-03-20T09:01:27 PDT" duration-ms="11781" status="PASS">
+        <test-method signature="guestCheckoutUsingDirectBankTransfer()[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T12:46:09 PDT" name="guestCheckoutUsingDirectBankTransfer" finished-at="2023-03-20T12:46:20 PDT" duration-ms="10883" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- guestCheckoutUsingDirectBankTransfer -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T09:01:17 PDT" name="quitDriver" finished-at="2023-03-20T09:01:18 PDT" duration-ms="1136" status="PASS">
+        <test-method signature="dummyTest()[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T12:46:09 PDT" name="dummyTest" finished-at="2023-03-20T12:46:10 PDT" duration-ms="1078" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dummyTest -->
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T12:46:10 PDT" name="quitDriver" finished-at="2023-03-20T12:46:11 PDT" duration-ms="661" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T09:01:18 PDT" name="startDriver" finished-at="2023-03-20T09:01:22 PDT" duration-ms="4350" status="PASS">
+        <test-method is-config="true" signature="startDriver(java.lang.String)[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T12:46:11 PDT" name="startDriver" finished-at="2023-03-20T12:46:14 PDT" duration-ms="3075" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -52,15 +52,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startDriver -->
-        <test-method signature="loginAndCheckoutUsingDirectBankTransfer()[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T09:01:22 PDT" name="loginAndCheckoutUsingDirectBankTransfer" finished-at="2023-03-20T09:01:33 PDT" duration-ms="10571" status="PASS">
+        <test-method signature="loginAndCheckoutUsingDirectBankTransfer()[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T12:46:14 PDT" name="loginAndCheckoutUsingDirectBankTransfer" finished-at="2023-03-20T12:46:23 PDT" duration-ms="9036" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginAndCheckoutUsingDirectBankTransfer -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T09:01:27 PDT" name="quitDriver" finished-at="2023-03-20T09:01:28 PDT" duration-ms="716" status="PASS">
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T12:46:20 PDT" name="quitDriver" finished-at="2023-03-20T12:46:21 PDT" duration-ms="697" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T09:01:33 PDT" name="quitDriver" finished-at="2023-03-20T09:01:33 PDT" duration-ms="663" status="PASS">
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase@10db82ae]" started-at="2023-03-20T12:46:23 PDT" name="quitDriver" finished-at="2023-03-20T12:46:24 PDT" duration-ms="574" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
