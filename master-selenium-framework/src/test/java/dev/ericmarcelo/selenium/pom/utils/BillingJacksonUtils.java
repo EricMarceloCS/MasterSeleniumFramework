@@ -37,7 +37,7 @@ public class BillingJacksonUtils {
                 .setState(mapper.get("state"))
                 .setPostalCode(mapper.get("postalCode"))
                 .setEmail(mapper.get("email"))
-                .setUserName(mapper.get("userName"))
+                .setUsername(mapper.get("username"))
                 .setPassword(mapper.get("password"));
 
         mapper.clear();

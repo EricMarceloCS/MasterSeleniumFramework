@@ -9,7 +9,7 @@ public class BillingAddress {
     private String state;
     private String postalCode;
     private String email;
-    private String userName;
+    private String username;
     private String password;
 
     public String getCountry() {
@@ -30,12 +30,12 @@ public class BillingAddress {
         return this;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public BillingAddress setUserName(String userName) {
-        this.userName = userName;
+    public BillingAddress setUsername(String username) {
+        this.username = username;
         return this;
     }
 
@@ -112,7 +112,7 @@ public class BillingAddress {
                 ", state='" + state + '\'' +
                 ", postalCode='" + postalCode + '\'' +
                 ", email='" + email + '\'' +
-                ", userName='" + userName + '\'' +
+                ", userName='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
