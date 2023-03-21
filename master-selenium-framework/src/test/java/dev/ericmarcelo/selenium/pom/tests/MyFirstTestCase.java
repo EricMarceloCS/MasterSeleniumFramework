@@ -63,10 +63,9 @@ public class MyFirstTestCase extends BaseTest {
         CheckoutPage checkoutPage = cartPage.checkout();
         checkoutPage.enterLogin();
 
-        User user = new User(
-                ConfigLoader.getInstance().getUsername()
-                , ConfigLoader.getInstance().getPassword()
-        );
+        User user = new User()
+                .setUsername(ConfigLoader.getInstance().getUsername())
+                .setPassword(ConfigLoader.getInstance().getPassword());
 
         BillingAddress billingAddress = new BillingAddress()
                 .setFirstName("demo")
@@ -75,7 +74,7 @@ public class MyFirstTestCase extends BaseTest {
                 .setCity("San Francisco")
                 .setPostalCode("94188")
                 .setEmail("askomdch@gmail.com")
-                .setUserName(user.getUserName())
+                .setUsername(user.getUsername())
                 .setPassword(user.getPassword());
 
         checkoutPage.setBillingAddress(billingAddress);

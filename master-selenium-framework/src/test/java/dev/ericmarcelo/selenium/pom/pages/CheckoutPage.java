@@ -48,7 +48,7 @@ public class CheckoutPage extends BasePage {
     }
 
     public CheckoutPage setUser(User user){
-        enterUserName(user.getUserName())
+        enterUserName(user.getUsername())
                 .enterPassword(user.getPassword());
         return this;
     }
