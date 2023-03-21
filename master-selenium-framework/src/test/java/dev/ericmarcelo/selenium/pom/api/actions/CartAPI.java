@@ -18,13 +18,16 @@ public class CartAPI {
     public CartAPI() {
 
     }
-
     public CartAPI(Cookies cookies) {
         this.cookies = cookies;
     }
 
     public Cookies getCookies() {
         return cookies;
+    }
+
+    public void setCookies(Cookies cookies) {
+        this.cookies = cookies;
     }
 
     public Response addToCart(Integer productId, Integer quantity) {
@@ -66,6 +69,7 @@ public class CartAPI {
 
         }
 
+        setCookies(response.getDetailedCookies());
         return response;
     }
 }
