@@ -31,8 +31,15 @@ public class CheckoutPage extends BasePage {
     private By alternateCountryDropdown = By.id("select2-billing_country-container");
     private By alternateStateDropDown = By.id("select2-billing_state-container");
 
+    private final By productName = By.cssSelector("td[class='product-name']");
+
     public CheckoutPage(WebDriver webDriver) {
         super(webDriver);
+    }
+
+    public CheckoutPage load() {
+        load("/checkout/");
+        return this;
     }
 
     public CheckoutPage setBillingAddress(BillingAddress billingAddress) {
@@ -157,5 +164,12 @@ public class CheckoutPage extends BasePage {
             webElement.click();
         }
         return this;
+    }
+
+    public String getProductName() {
+        return webDriverWait
+                .until(ExpectedConditions
+                                .visibilityOfElementLocated(productName))
+                .getText();
     }
 }

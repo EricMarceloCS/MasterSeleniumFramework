@@ -20,7 +20,7 @@ public class BasePage {
     }
 
     public void load(String endPoint){
-        webDriver.get(ConfigLoader.getInstance().getBaseUrl() + endPoint);
+        webDriver.get(ConfigLoader.getInstance().getBaseUrl() + "" +endPoint);
     }
 
     public void waitForOverlaysToDisappear(By overlay) {

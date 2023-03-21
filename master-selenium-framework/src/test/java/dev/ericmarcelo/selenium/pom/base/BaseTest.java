@@ -1,10 +1,15 @@
 package dev.ericmarcelo.selenium.pom.base;
 
 import dev.ericmarcelo.selenium.pom.factory.DriverManager;
+import dev.ericmarcelo.selenium.pom.utils.CookieUtils;
+import io.restassured.http.Cookies;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
+
+import java.util.List;
 
 public class BaseTest {
 
@@ -31,5 +36,13 @@ public class BaseTest {
     public void quitDriver(){
         WebDriver webDriver = getWebDriver();
         webDriver.quit();
+    }
+
+    public void injectCookiesToBrowser(Cookies cookies) {
+        List<Cookie> seleniumCookies = new CookieUtils().convertRestAssuredCookiesToSeleniumCookies(cookies);
+        for(Cookie cookie : seleniumCookies) {
+            getWebDriver().manage().addCookie(cookie);
+            System.err.println("COOKIE : " + cookie);
+        }
     }
 }
