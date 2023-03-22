@@ -1,6 +1,7 @@
 package dev.ericmarcelo.selenium.pom.pages;
 
 import dev.ericmarcelo.selenium.pom.base.BasePage;
+import dev.ericmarcelo.selenium.pom.objects.Product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -51,5 +52,11 @@ public class StorePage extends BasePage {
     public CartPage clickViewCart() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(viewCartLink)).click();
         return new CartPage(webDriver);
+    }
+
+    public ProductPage navigateToProductPage() {
+        webDriver.findElement(searchField).sendKeys("Blue Shoes");
+        webDriver.findElement(searchButton).click();
+        return new ProductPage(webDriver);
     }
 }
