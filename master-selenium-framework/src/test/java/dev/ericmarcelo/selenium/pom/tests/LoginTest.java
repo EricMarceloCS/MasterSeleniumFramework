@@ -5,6 +5,7 @@ import dev.ericmarcelo.selenium.pom.api.actions.SignUpAPI;
 import dev.ericmarcelo.selenium.pom.base.BaseTest;
 import dev.ericmarcelo.selenium.pom.objects.Product;
 import dev.ericmarcelo.selenium.pom.objects.User;
+import dev.ericmarcelo.selenium.pom.pages.AccountPage;
 import dev.ericmarcelo.selenium.pom.pages.CheckoutPage;
 import dev.ericmarcelo.selenium.pom.utils.FakerUtils;
 import org.testng.Assert;
@@ -41,5 +42,13 @@ public class LoginTest extends BaseTest {
                 .login();
         Thread.sleep(5000);
         Assert.assertTrue(checkoutPage.getProductName().contains(product.getName()));
+    }
+    @Test
+    public void loginFail() {
+        AccountPage accountPage = new AccountPage(getWebDriver())
+                .load()
+                .enterBadLogin();
+        Assert.assertTrue(accountPage.getErrorNotice().contains("Error"));
+
     }
 }
