@@ -1,6 +1,7 @@
 package dev.ericmarcelo.selenium.pom.pages;
 
 import dev.ericmarcelo.selenium.pom.base.BasePage;
+import dev.ericmarcelo.selenium.pom.constants.Endpoints;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,7 +18,7 @@ public class AccountPage extends BasePage {
     }
 
     public AccountPage load() {
-        load("/account");
+        load(Endpoints.ACCOUNT);
         return this;
     }
 

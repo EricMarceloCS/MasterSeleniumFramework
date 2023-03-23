@@ -1,6 +1,7 @@
 package dev.ericmarcelo.selenium.pom.pages;
 
 import dev.ericmarcelo.selenium.pom.base.BasePage;
+import dev.ericmarcelo.selenium.pom.constants.Endpoints;
 import dev.ericmarcelo.selenium.pom.objects.Product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +19,7 @@ public class StorePage extends BasePage {
     }
 
     public StorePage load(){
-        load("/store");
+        load(Endpoints.STORE);
         return this;
     }
 

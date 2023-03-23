@@ -1,6 +1,7 @@
 package dev.ericmarcelo.selenium.pom.pages;
 
 import dev.ericmarcelo.selenium.pom.base.BasePage;
+import dev.ericmarcelo.selenium.pom.constants.Endpoints;
 import dev.ericmarcelo.selenium.pom.objects.BillingAddress;
 import dev.ericmarcelo.selenium.pom.objects.User;
 import org.openqa.selenium.By;
@@ -38,7 +39,7 @@ public class CheckoutPage extends BasePage {
     }
 
     public CheckoutPage load() {
-        load("/checkout/");
+        load(Endpoints.CHECKOUT);
         return this;
     }
 
