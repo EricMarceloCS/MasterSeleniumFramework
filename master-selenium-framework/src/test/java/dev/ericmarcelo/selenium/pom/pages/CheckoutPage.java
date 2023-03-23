@@ -27,10 +27,10 @@ public class CheckoutPage extends BasePage {
     private final By overlay = By.cssSelector(".blockUI.blockOverlay");
     private final By countryDropDown = By.id("billing_country");
     private final By stateDropDown = By.id("billing_state");
-    private final By directbankTransferRadioBtn = By.id("payment_method_bacs");
+    private final By directBankTransferRadioBtn = By.id("payment_method_bacs");
+    private final By cashOnDeliveryRadioBtn = By.id("payment_method_cod");
     private By alternateCountryDropdown = By.id("select2-billing_country-container");
     private By alternateStateDropDown = By.id("select2-billing_state-container");
-
     private final By productName = By.cssSelector("td[class='product-name']");
 
     public CheckoutPage(WebDriver webDriver) {
@@ -157,9 +157,19 @@ public class CheckoutPage extends BasePage {
         webDriver.findElement(login).click();
     }
 
-    public CheckoutPage selectDirectBankTransfer(){
+    public CheckoutPage selectDirectBankTransfer() {
         WebElement webElement = webDriverWait
-                .until(ExpectedConditions.elementToBeClickable(directbankTransferRadioBtn));
+                .until(ExpectedConditions.elementToBeClickable(directBankTransferRadioBtn));
+        if(!webElement.isSelected()){
+            webElement.click();
+        }
+        return this;
+    }
+
+    public CheckoutPage selectCashOnDelivery() {
+        waitForOverlaysToDisappear(this.overlay);
+        WebElement webElement = webDriverWait
+                .until(ExpectedConditions.elementToBeClickable(cashOnDeliveryRadioBtn));
         if(!webElement.isSelected()){
             webElement.click();
         }
