@@ -1,5 +1,6 @@
 package dev.ericmarcelo.selenium.pom.base;
 
+import dev.ericmarcelo.selenium.pom.constants.Endpoints;
 import dev.ericmarcelo.selenium.pom.utils.ConfigLoader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,8 +20,25 @@ public class BasePage {
         this.webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
     }
 
-    public void load(String endPoint){
-        webDriver.get(ConfigLoader.getInstance().getBaseUrl() + "" +endPoint);
+    public void load(Endpoints endPoint){
+        String file;
+        switch(endPoint) {
+            case ACCOUNT: file = "/account";
+                break;
+            case PRODUCT: file = "/product/blue-shoes";
+                break;
+            case HOME: file = "/";
+                break;
+            case CHECKOUT: file = "/checkout/";
+                break;
+            case STORE: file = "/store";
+                break;
+            case CART: file = "/?wc-ajax=add_to_cart";
+                break;
+            default:
+                throw new RuntimeException("Invalid endpoint");
+        }
+        webDriver.get(ConfigLoader.getInstance().getBaseUrl() + "" +file);
     }
 
     public void waitForOverlaysToDisappear(By overlay) {

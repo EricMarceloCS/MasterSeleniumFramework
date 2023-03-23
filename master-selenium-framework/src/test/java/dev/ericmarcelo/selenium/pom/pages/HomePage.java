@@ -1,6 +1,7 @@
 package dev.ericmarcelo.selenium.pom.pages;
 
 import dev.ericmarcelo.selenium.pom.base.BasePage;
+import dev.ericmarcelo.selenium.pom.constants.Endpoints;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,7 +22,7 @@ public class HomePage extends BasePage {
     }
 
     public HomePage load(){
-        load("/");
+        load(Endpoints.HOME);
         webDriverWait.until(ExpectedConditions.titleContains("AskOmDch"));
         return this;
     }
