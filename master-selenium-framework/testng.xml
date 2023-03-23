@@ -16,8 +16,8 @@
 <!--            <class name="dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase"></class>-->
 <!--            <class name="dev.ericmarcelo.selenium.pom.tests.NavigationTest"></class>-->
 <!--            <class name="dev.ericmarcelo.selenium.pom.tests.SearchTest"></class>-->
-<!--            <class name="dev.ericmarcelo.selenium.pom.tests.AddToCartTest"></class>-->
-            <class name="dev.ericmarcelo.selenium.pom.tests.LoginTest"></class>
+            <class name="dev.ericmarcelo.selenium.pom.tests.AddToCartTest"></class>
+<!--            <class name="dev.ericmarcelo.selenium.pom.tests.LoginTest"></class>-->
 <!--            <class name="dev.ericmarcelo.selenium.pom.tests.CheckoutTest"></class>-->
         </classes>
     </test>
