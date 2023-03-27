@@ -2,23 +2,22 @@ package dev.ericmarcelo.selenium.pom.pages;
 
 import dev.ericmarcelo.selenium.pom.base.BasePage;
 import dev.ericmarcelo.selenium.pom.constants.Endpoints;
+import dev.ericmarcelo.selenium.pom.pages.components.HeaderPage;
+import dev.ericmarcelo.selenium.pom.pages.components.ProductThumbnail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage {
 
-    private final By storeMenuLink = By.cssSelector("#menu-item-1227 > a");
     private final By linkText = By.cssSelector(".ast-loop-product__link");
-    private final By viewCartLink = By.cssSelector("a[title='View cart']");
+    private HeaderPage headerPage;
+    private ProductThumbnail productThumbnail;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
-    }
-
-    public StorePage navigateToStoreUsingMenu(){
-        webDriver.findElement(storeMenuLink).click();
-        return new StorePage(webDriver);
+        headerPage = new HeaderPage(webDriver);
+        productThumbnail = new ProductThumbnail(webDriver);
     }
 
     public HomePage load(){
@@ -32,18 +31,11 @@ public class HomePage extends BasePage {
         return new ProductPage(webDriver);
     }
 
-    private By getAddToCartBtnElement(String productName) {
-        return By.cssSelector("a[aria-label='Add “" + productName + "” to your cart']");
+    public HeaderPage getHeaderPage() {
+        return headerPage;
     }
 
-    public HomePage clickAddToCartButton(String productName) {
-        By addToCartBtnElement = getAddToCartBtnElement(productName);
-        webDriver.findElement(addToCartBtnElement).click();
-        return this;
-    }
-
-    public CartPage clickViewCart() {
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(viewCartLink)).click();
-        return new CartPage(webDriver);
+    public ProductThumbnail getProductThumbnail() {
+        return productThumbnail;
     }
 }
