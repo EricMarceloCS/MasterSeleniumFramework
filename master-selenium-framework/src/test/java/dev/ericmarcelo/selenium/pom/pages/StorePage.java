@@ -2,20 +2,23 @@ package dev.ericmarcelo.selenium.pom.pages;
 
 import dev.ericmarcelo.selenium.pom.base.BasePage;
 import dev.ericmarcelo.selenium.pom.constants.Endpoints;
-import dev.ericmarcelo.selenium.pom.objects.Product;
+import dev.ericmarcelo.selenium.pom.pages.components.HeaderPage;
+import dev.ericmarcelo.selenium.pom.pages.components.ProductThumbnail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class StorePage extends BasePage {
 
     private final By searchField = By.id("woocommerce-product-search-field-0");
     private final By searchButton = By.cssSelector("button[value='Search']");
     private final By title = By.cssSelector(".woocommerce-products-header__title.page-title");
-    private final By viewCartLink = By.cssSelector("a[title='View cart']");
     private final By productNotFound = By.cssSelector(".woocommerce-no-products-found");
+    private HeaderPage headerPage;
+    private ProductThumbnail productThumbnail;
     public StorePage(WebDriver webDriver) {
         super(webDriver);
+        headerPage = new HeaderPage(webDriver);
+        productThumbnail = new ProductThumbnail(webDriver);
     }
 
     public StorePage load(){
@@ -51,24 +54,17 @@ public class StorePage extends BasePage {
         return webDriver.findElement(productNotFound).getText();
     }
 
-    private By getAddToCartBtnElement(String productName) {
-        return By.cssSelector("a[aria-label='Add “" + productName + "” to your cart']");
-    }
-
-    public StorePage clickAddToCartButton(String productName) {
-        By addToCartBtnElement = getAddToCartBtnElement(productName);
-        webDriver.findElement(addToCartBtnElement).click();
-        return this;
-    }
-
-    public CartPage clickViewCart() {
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(viewCartLink)).click();
-        return new CartPage(webDriver);
-    }
-
     public ProductPage navigateToProductPage() {
         webDriver.findElement(searchField).sendKeys("Blue Shoes");
         webDriver.findElement(searchButton).click();
         return new ProductPage(webDriver);
+    }
+
+    public HeaderPage getHeaderPage() {
+        return headerPage;
+    }
+
+    public ProductThumbnail getProductThumbnail() {
+        return productThumbnail;
     }
 }

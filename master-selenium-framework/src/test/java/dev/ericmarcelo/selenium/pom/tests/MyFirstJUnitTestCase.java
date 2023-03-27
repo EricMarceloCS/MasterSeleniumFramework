@@ -31,12 +31,12 @@ public class MyFirstJUnitTestCase extends BaseJUnitTest {
         BillingJacksonUtils.deserializeBillingAddressJson(is, billingAddress);
 
         StorePage storePage = new HomePage(webDriver)
-                .load().navigateToStoreUsingMenu()
+                .load().getHeaderPage().navigateToStoreUsingMenu()
                 .search("Blue");
         Assertions.assertEquals("Search results: “Blue”", storePage.getTitle());
 
-        storePage.clickAddToCartButton("Blue Shoes");
-        CartPage cartPage = storePage.clickViewCart();
+        storePage.getProductThumbnail().clickAddToCartButton("Blue Shoes");
+        CartPage cartPage = storePage.getProductThumbnail().clickViewCart();
         Assertions.assertEquals("Blue Shoes", cartPage.getProductName());
 
         CheckoutPage checkoutPage = cartPage.checkout();
@@ -53,12 +53,12 @@ public class MyFirstJUnitTestCase extends BaseJUnitTest {
     public void loginAndCheckoutUsingDirectBankTransfer() {
 
         StorePage storePage = new HomePage(webDriver)
-                .load().navigateToStoreUsingMenu()
+                .load().getHeaderPage().navigateToStoreUsingMenu()
                 .search("Blue");
         Assertions.assertEquals("Search results: “Blue”", storePage.getTitle());
 
-        storePage.clickAddToCartButton("Blue Shoes");
-        CartPage cartPage = storePage.clickViewCart();
+        storePage.getProductThumbnail().clickAddToCartButton("Blue Shoes");
+        CartPage cartPage = storePage.getProductThumbnail().clickViewCart();
         Assertions.assertEquals("Blue Shoes", cartPage.getProductName());
 
         CheckoutPage checkoutPage = cartPage.checkout();
