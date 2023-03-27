@@ -1,11 +1,21 @@
 package dev.ericmarcelo.selenium.pom.tests;
 
 import dev.ericmarcelo.selenium.pom.base.BaseTest;
+import dev.ericmarcelo.selenium.pom.data.providers.ProductsDataProvider;
+import dev.ericmarcelo.selenium.pom.objects.Product;
 import dev.ericmarcelo.selenium.pom.pages.CartPage;
+import dev.ericmarcelo.selenium.pom.pages.HomePage;
 import dev.ericmarcelo.selenium.pom.pages.ProductPage;
 import dev.ericmarcelo.selenium.pom.pages.StorePage;
+import dev.ericmarcelo.selenium.pom.utils.ProductsJacksonUtils;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Optional;
 
 public class AddToCartTest extends BaseTest {
 
@@ -30,4 +40,17 @@ public class AddToCartTest extends BaseTest {
                         .anyMatch(we -> we.getText().contains("“Blue Shoes” has been added to your cart."))
         );
     }
+
+    @Test
+    public void addToCartFeaturedProducts() {
+        List<Product> featuredProducts = new ProductsDataProvider().getFeaturedProducts();
+        HomePage homePage = new HomePage(getWebDriver());
+        Optional<Product> optionalProduct = featuredProducts.parallelStream().findAny();
+        CartPage cartPage = homePage.load()
+                .clickAddToCartButton(optionalProduct.get().getName())
+                .clickViewCart();
+        Assert.assertEquals(cartPage.getProductName(), optionalProduct.get().getName());
+
+    }
+
 }
