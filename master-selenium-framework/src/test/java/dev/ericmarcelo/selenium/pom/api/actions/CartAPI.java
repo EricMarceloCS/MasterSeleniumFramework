@@ -42,9 +42,10 @@ public class CartAPI {
 
         System.out.println("Before APIRequest");
         Response response = new APIRequest().postToCartRequest(headers, formParams);
-        System.out.println("After APIRequest");
+        System.out.println("******** After APIRequest");
         setCookies(response.getDetailedCookies());
-        System.out.println("After Cookies");
+        System.out.println(response.getDetailedCookies());
+        System.out.println("********** After Cookies");
         return response;
     }
 }

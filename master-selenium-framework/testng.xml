@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Suite1" verbose="1" thread-count="2" parallel="methods">
+<suite name="Suite1" verbose="1" thread-count="1" parallel="methods">
     <test name="TestNG" >
         <!-- Parameters -->
         <parameter name="browser" value="FIREFOX"></parameter>
@@ -14,11 +14,11 @@
         <!-- Test Classes -->
         <classes>
 <!--            <class name="dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase"></class>-->
-<!--            <class name="dev.ericmarcelo.selenium.pom.tests.NavigationTest"></class>-->
-<!--            <class name="dev.ericmarcelo.selenium.pom.tests.SearchTest"></class>-->
+            <class name="dev.ericmarcelo.selenium.pom.tests.NavigationTest"></class>
+            <class name="dev.ericmarcelo.selenium.pom.tests.SearchTest"></class>
             <class name="dev.ericmarcelo.selenium.pom.tests.AddToCartTest"></class>
-<!--            <class name="dev.ericmarcelo.selenium.pom.tests.LoginTest"></class>-->
-<!--            <class name="dev.ericmarcelo.selenium.pom.tests.CheckoutTest"></class>-->
+            <class name="dev.ericmarcelo.selenium.pom.tests.LoginTest"></class>
+            <class name="dev.ericmarcelo.selenium.pom.tests.CheckoutTest"></class>
         </classes>
     </test>
 </suite>

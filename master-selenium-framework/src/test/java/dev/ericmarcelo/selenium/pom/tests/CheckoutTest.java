@@ -14,7 +14,6 @@ import org.testng.annotations.Test;
 public class CheckoutTest extends BaseTest {
 
     ////////////////// Direct Bank Transfer /////////////////////////////////////
-/*
 
     @Test
     public void guestCheckoutUsingDirectBankTransfer() {
@@ -68,9 +67,8 @@ public class CheckoutTest extends BaseTest {
 
         CheckoutPage checkoutPage = new CheckoutPage(getWebDriver()).load();
         Thread.sleep(5000);
-        injectCookiesToBrowser(signUpAPI.getCookies());
+        injectCookiesToBrowser(cartAPI.getCookies());
         checkoutPage.load();
-
 
         BillingAddress billingAddress = new BillingAddress()
                 .setFirstName("demo")
@@ -93,7 +91,6 @@ public class CheckoutTest extends BaseTest {
                 "Thank you. Your order has been received."
         );
     }
-*/
 
     ///////////////// Cash On Delivery ////////////////////////////
     @Test
@@ -148,9 +145,8 @@ public class CheckoutTest extends BaseTest {
 
         CheckoutPage checkoutPage = new CheckoutPage(getWebDriver()).load();
         Thread.sleep(5000);
-        injectCookiesToBrowser(signUpAPI.getCookies());
+        injectCookiesToBrowser(cartAPI.getCookies());
         checkoutPage.load();
-
 
         BillingAddress billingAddress = new BillingAddress()
                 .setFirstName("demo")

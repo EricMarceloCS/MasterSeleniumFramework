@@ -17,7 +17,7 @@ public class BasePage {
 
     public BasePage(WebDriver webDriver) {
         this.webDriver = webDriver;
-        this.webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
+        this.webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(30));
     }
 
     public void load(Endpoints endPoint){

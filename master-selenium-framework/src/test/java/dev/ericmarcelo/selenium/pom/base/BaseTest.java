@@ -26,14 +26,14 @@ public class BaseTest {
 
     @Parameters("browser")
     @BeforeMethod
-    public void startDriver(String browser) {
+    public synchronized void startDriver(String browser) {
        setWebDriver(new DriverManager().initializeDriver(browser));
        System.out.println("Starting Thread: " + Thread.currentThread().getId());
 
     }
 
     @AfterMethod
-    public void quitDriver(){
+    public synchronized void quitDriver(){
         WebDriver webDriver = getWebDriver();
         webDriver.quit();
     }
@@ -42,7 +42,7 @@ public class BaseTest {
         List<Cookie> seleniumCookies = new CookieUtils().convertRestAssuredCookiesToSeleniumCookies(cookies);
         for(Cookie cookie : seleniumCookies) {
             getWebDriver().manage().addCookie(cookie);
-            System.err.println("COOKIE : " + cookie);
+            System.err.println("***********COOKIE : " + cookie);
         }
     }
 }
