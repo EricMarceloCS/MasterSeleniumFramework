@@ -1,6 +1,7 @@
 package dev.ericmarcelo.selenium.pom.base;
 
-import dev.ericmarcelo.selenium.pom.factory.DriverManager;
+import dev.ericmarcelo.selenium.pom.constants.DriverType;
+import dev.ericmarcelo.selenium.pom.factory.DriverManagerFactory;
 import dev.ericmarcelo.selenium.pom.utils.CookieUtils;
 import io.restassured.http.Cookies;
 import org.openqa.selenium.Cookie;
@@ -27,15 +28,14 @@ public class BaseTest {
     @Parameters("browser")
     @BeforeMethod
     public synchronized void startDriver(String browser) {
-       setWebDriver(new DriverManager().initializeDriver(browser));
-       System.out.println("Starting Thread: " + Thread.currentThread().getId());
+       setWebDriver(DriverManagerFactory.getManager(DriverType.FIREFOX).createDriver());
+       System.out.println("STARTING THREAD: " + Thread.currentThread().getId());
 
     }
 
     @AfterMethod
     public synchronized void quitDriver(){
-        WebDriver webDriver = getWebDriver();
-        webDriver.quit();
+        getWebDriver().quit();
     }
 
     public void injectCookiesToBrowser(Cookies cookies) {
