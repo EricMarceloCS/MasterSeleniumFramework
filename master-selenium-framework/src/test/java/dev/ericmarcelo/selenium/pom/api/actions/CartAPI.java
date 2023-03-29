@@ -10,8 +10,6 @@ import io.restassured.response.Response;
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.restassured.RestAssured.given;
-
 public class CartAPI {
 
     private Cookies cookies;

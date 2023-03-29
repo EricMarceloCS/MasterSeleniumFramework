@@ -33,6 +33,7 @@ public class CheckoutPage extends BasePage {
     private By alternateCountryDropdown = By.id("select2-billing_country-container");
     private By alternateStateDropDown = By.id("select2-billing_state-container");
     private final By productName = By.cssSelector("td[class='product-name']");
+    private final By accountMenu = By.id("menu-item-1237");
 
     public CheckoutPage(WebDriver webDriver) {
         super(webDriver);
@@ -182,5 +183,10 @@ public class CheckoutPage extends BasePage {
                 .until(ExpectedConditions
                                 .visibilityOfElementLocated(productName))
                 .getText();
+    }
+
+    public AccountPage clickAccountMenu() {
+        webDriver.findElement(accountMenu).click();
+        return new AccountPage(webDriver);
     }
 }
