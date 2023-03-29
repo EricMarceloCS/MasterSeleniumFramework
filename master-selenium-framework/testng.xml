@@ -19,7 +19,8 @@
 <!--            <class name="dev.ericmarcelo.selenium.pom.tests.AddToCartTest"></class>-->
 <!--            <class name="dev.ericmarcelo.selenium.pom.tests.LoginTest"></class>-->
 <!--            <class name="dev.ericmarcelo.selenium.pom.tests.CheckoutTest"></class>-->
-            <class name="dev.ericmarcelo.selenium.pom.tests.CouponTest"></class>
+<!--            <class name="dev.ericmarcelo.selenium.pom.tests.CouponTest"></class>-->
+            <class name="dev.ericmarcelo.selenium.pom.tests.AccountTest"></class>
         </classes>
     </test>
 </suite>

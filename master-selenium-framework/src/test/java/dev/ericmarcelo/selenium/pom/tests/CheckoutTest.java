@@ -67,6 +67,7 @@ public class CheckoutTest extends BaseTest {
 
         CheckoutPage checkoutPage = new CheckoutPage(getWebDriver()).load();
         Thread.sleep(5000);
+        injectCookiesToBrowser(signUpAPI.getCookies());
         injectCookiesToBrowser(cartAPI.getCookies());
         checkoutPage.load();
 
@@ -145,6 +146,7 @@ public class CheckoutTest extends BaseTest {
 
         CheckoutPage checkoutPage = new CheckoutPage(getWebDriver()).load();
         Thread.sleep(5000);
+        injectCookiesToBrowser(signUpAPI.getCookies());
         injectCookiesToBrowser(cartAPI.getCookies());
         checkoutPage.load();
 
