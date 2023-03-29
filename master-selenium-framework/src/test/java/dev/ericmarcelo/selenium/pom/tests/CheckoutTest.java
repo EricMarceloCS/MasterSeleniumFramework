@@ -1,6 +1,7 @@
 package dev.ericmarcelo.selenium.pom.tests;
 
 import dev.ericmarcelo.selenium.pom.api.actions.CartAPI;
+import dev.ericmarcelo.selenium.pom.api.actions.CheckoutAPI;
 import dev.ericmarcelo.selenium.pom.api.actions.SignUpAPI;
 import dev.ericmarcelo.selenium.pom.base.BaseTest;
 import dev.ericmarcelo.selenium.pom.objects.BillingAddress;
@@ -17,26 +18,10 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void guestCheckoutUsingDirectBankTransfer() {
+
         CheckoutPage checkoutPage = new CheckoutPage(getWebDriver()).load();
-        CartAPI cartAPI = new CartAPI();
-        cartAPI.addToCart(1215, 1);
-        injectCookiesToBrowser(cartAPI.getCookies());
-
-        String username = "demouser" + new FakerUtils().generateRandomNumber();
-        User user = new User()
-                .setUsername(username)
-                .setPassword("demopwd")
-                .setEmail(username + "@askomdch.com");
-
-        BillingAddress billingAddress = new BillingAddress()
-                .setFirstName("demo")
-                .setLastName("user")
-                .setAddress("San Francisco")
-                .setCity("San Francisco")
-                .setPostalCode("94188")
-                .setEmail("askomdch@gmail.com")
-                .setUsername(user.getUsername())
-                .setPassword(user.getPassword());
+        CheckoutAPI checkoutAPI = new CheckoutAPI();
+        BillingAddress billingAddress = checkoutAPI.guestCheckout(this);
 
         checkoutPage
                 .load()
@@ -96,26 +81,10 @@ public class CheckoutTest extends BaseTest {
     ///////////////// Cash On Delivery ////////////////////////////
     @Test
     public void guestCheckoutUsingCashOnDelivery() {
+
         CheckoutPage checkoutPage = new CheckoutPage(getWebDriver()).load();
-        CartAPI cartAPI = new CartAPI();
-        cartAPI.addToCart(1215, 1);
-        injectCookiesToBrowser(cartAPI.getCookies());
-
-        String username = "demouser" + new FakerUtils().generateRandomNumber();
-        User user = new User()
-                .setUsername(username)
-                .setPassword("demopwd")
-                .setEmail(username + "@askomdch.com");
-
-        BillingAddress billingAddress = new BillingAddress()
-                .setFirstName("demo")
-                .setLastName("user")
-                .setAddress("San Francisco")
-                .setCity("San Francisco")
-                .setPostalCode("94188")
-                .setEmail("askomdch@gmail.com")
-                .setUsername(user.getUsername())
-                .setPassword(user.getPassword());
+        CheckoutAPI checkoutAPI = new CheckoutAPI();
+        BillingAddress billingAddress = checkoutAPI.guestCheckout(this);
 
         checkoutPage
                 .load()

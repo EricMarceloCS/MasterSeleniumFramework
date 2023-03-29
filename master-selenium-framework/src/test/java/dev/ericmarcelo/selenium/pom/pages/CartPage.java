@@ -21,6 +21,7 @@ public class CartPage extends BasePage {
     @FindBy(how = How.CSS, using = ".checkout-button.button.alt.wc-forward")
     @CacheLookup
     private WebElement checkoutButton;
+    private final By taxText =  By.className("tax-rate");
 
     public CartPage(WebDriver webDriver) {
         super(webDriver);
@@ -36,5 +37,9 @@ public class CartPage extends BasePage {
     public CheckoutPage checkout(){
         webDriverWait.until(ExpectedConditions.elementToBeClickable(checkoutButton)).click();
         return new CheckoutPage(webDriver);
+    }
+
+    public String getTax() {
+        return webDriver.findElement(taxText).getText();
     }
 }

@@ -34,6 +34,7 @@ public class CheckoutPage extends BasePage {
     private By alternateStateDropDown = By.id("select2-billing_state-container");
     private final By productName = By.cssSelector("td[class='product-name']");
     private final By accountMenu = By.id("menu-item-1237");
+    private final By checkoutAmounts = By.className("woocommerce-Price-amount");
 
     public CheckoutPage(WebDriver webDriver) {
         super(webDriver);
@@ -45,7 +46,7 @@ public class CheckoutPage extends BasePage {
     }
 
     public CheckoutPage setBillingAddress(BillingAddress billingAddress) {
-       return enterFirstName(billingAddress.getFirstName())
+       enterFirstName(billingAddress.getFirstName())
                .enterLastName(billingAddress.getLastName())
                .selectCountry(billingAddress.getCountry())
                .selectState(billingAddress.getState())
@@ -53,6 +54,7 @@ public class CheckoutPage extends BasePage {
                .enterCity(billingAddress.getCity())
                .enterPostCode(billingAddress.getPostalCode())
                .enterEmail(billingAddress.getEmail());
+       return this;
 
     }
 
@@ -189,4 +191,5 @@ public class CheckoutPage extends BasePage {
         webDriver.findElement(accountMenu).click();
         return new AccountPage(webDriver);
     }
+
 }
