@@ -12,6 +12,13 @@ My Build:
 * Selenium
 * TestNG
 * JUnit Jupiter
+* Allure Test Reports
+
+Allure Reports:
+
+* Install Allure to command line 
+* Add allure to PATH
+* https://docs.qameta.io/allure/#_testng
 
 WARNING: DO NOT ADD YOUR PERSONAL INFORMATION TO THE PRACTICE WEBSITES
 
