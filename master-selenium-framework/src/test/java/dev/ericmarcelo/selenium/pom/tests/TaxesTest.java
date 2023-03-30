@@ -1,20 +1,18 @@
 package dev.ericmarcelo.selenium.pom.tests;
 
-import dev.ericmarcelo.selenium.pom.api.actions.CartAPI;
 import dev.ericmarcelo.selenium.pom.api.actions.CheckoutAPI;
 import dev.ericmarcelo.selenium.pom.base.BaseTest;
 import dev.ericmarcelo.selenium.pom.objects.BillingAddress;
-import dev.ericmarcelo.selenium.pom.objects.User;
 import dev.ericmarcelo.selenium.pom.pages.CartPage;
 import dev.ericmarcelo.selenium.pom.pages.CheckoutPage;
-import dev.ericmarcelo.selenium.pom.utils.FakerUtils;
-import org.openqa.selenium.Cookie;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TaxesTest extends BaseTest {
 
-    @Test
+    @Description("Validates State Sales Tax")
+    @Test(description = "Validate Sales Tax")
     public void validateSalesTax() throws InterruptedException {
         CheckoutPage checkoutPage = new CheckoutPage(getWebDriver()).load();
         CheckoutAPI checkoutAPI = new CheckoutAPI();
