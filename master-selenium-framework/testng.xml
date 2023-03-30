@@ -14,13 +14,13 @@
         <!-- Test Classes -->
         <classes>
 <!--            <class name="dev.ericmarcelo.selenium.pom.tests.MyFirstTestCase"></class>-->
-<!--            <class name="dev.ericmarcelo.selenium.pom.tests.NavigationTest"></class>-->
-<!--            <class name="dev.ericmarcelo.selenium.pom.tests.SearchTest"></class>-->
-<!--            <class name="dev.ericmarcelo.selenium.pom.tests.AddToCartTest"></class>-->
-<!--            <class name="dev.ericmarcelo.selenium.pom.tests.LoginTest"></class>-->
-<!--            <class name="dev.ericmarcelo.selenium.pom.tests.CheckoutTest"></class>-->
-<!--            <class name="dev.ericmarcelo.selenium.pom.tests.CouponTest"></class>-->
-<!--            <class name="dev.ericmarcelo.selenium.pom.tests.AccountTest"></class>-->
+            <class name="dev.ericmarcelo.selenium.pom.tests.NavigationTest"></class>
+            <class name="dev.ericmarcelo.selenium.pom.tests.SearchTest"></class>
+            <class name="dev.ericmarcelo.selenium.pom.tests.AddToCartTest"></class>
+            <class name="dev.ericmarcelo.selenium.pom.tests.LoginTest"></class>
+            <class name="dev.ericmarcelo.selenium.pom.tests.CheckoutTest"></class>
+            <class name="dev.ericmarcelo.selenium.pom.tests.CouponTest"></class>
+            <class name="dev.ericmarcelo.selenium.pom.tests.AccountTest"></class>
             <class name="dev.ericmarcelo.selenium.pom.tests.TaxesTest"></class>
         </classes>
     </test>
